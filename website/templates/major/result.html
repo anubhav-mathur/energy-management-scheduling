@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet" href="../static/major/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="../static/major/css/owl.carousel.min.css">
+  	<link rel="stylesheet" href="../static/major/css/magnific-popup.css">
+  	<link rel="stylesheet" href="../static/major/css/font-awesome.min.css">
+  	<link rel="stylesheet" href="../static/major/css/themify-icons.css">
+  	<link rel="stylesheet" href="../static/major/css/nice-select.css">
+  	<link rel="stylesheet" href="../static/major/css/flaticon.css">
+  	<link rel="stylesheet" href="../static/major/css/gijgo.css">
+  	<link rel="stylesheet" href="../static/major/css/animate.min.css">
+  	<link rel="stylesheet" href="../static/major/css/slicknav.css">
+  	<link rel="stylesheet" href="../static/major/css/style.css">
+
+    <style>
+    figure{
+      display:inline-block;
+    }
+    figcaption{
+      margin-top: 70px;
+      margin-left:110px;
+      font: 30px Arial, sans-serif;
+      color: white;
+    }
+    span.circle {
+        background: black;
+        font: 60px Arial, sans-serif;
+        width: 4em;
+        height: 4em;
+        box-sizing: initial;
+        border: 0.1em solid #666;
+        color: white;
+        text-align: center;
+        margin-left:110px;
+        border-radius: 100%;
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        line-height: 2em;
+        box-sizing: content-box;
+      }
+      body{
+        background-color:black;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid p-0">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo-img">
+                                <a href="{% url 'major:index' %}">
+                                    <img src="/static/major/img/logo.png" alt="Hahaha">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-8">
+                            <div class="main-menu  d-none d-lg-block text-center">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a class="active" href="{% url 'major:index' %}">Home</a></li>
+                                        <li><a href="{% url 'major:detail' %}">Scheduling</a></li>
+                                        <li><a href="{% url 'major:uploadsuccess' %}">Energy Usage</a></li>
+                                        <li><a href="{% url 'major:monitor' %}">Monitoring</a></li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 d-none d-lg-block">
+                            <div class="log_chat_area d-flex align-items-end">
+                                <li><a href="contact.html" class="say_hi">Contact</a></li>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+<br><br><br><br><br><br><br><br>
+<h2 style="color:white; margin-left:600px;">Total Consumption in a Day</h2>
+<br><br><br>
+    <figure>
+      <span class="circle">{{coal_consp}}</span>
+      <figcaption>Coal Energy Usage(kWh)</figcaption>
+    </figure>
+    <figure>
+        <span class="circle">{{solar_consp}}</span>
+        <figcaption>Solar Energy Usage(kWh)</figcaption>
+    </figure>
+    <figure>
+      <span class="circle">{{wind_consp}}</span>
+      <figcaption>Wind Energy Usage(kWh)</figcaption>
+    </figure>
+
+
+
+    <div class="section-top-border">
+				<div class="progress-table-wrap">
+					<div class="progress-table">
+
+						<div class="table-head">
+							<div class="serial">Hour. No. </div>
+							<div class="country">Coal</div>
+							<div class="visit">Household</div>
+							<div class="visit">Solar</div>
+							<div class="percentage">Wind</div>
+						</div>
+
+            {% for value in values %}
+            <div class="table-row">
+							<div class="serial">{{forloop.counter }}</div>
+							<div class="country"> {{value.0}}</div>
+							<div class="visit">{{value.2}}</div>
+							<div class="visit">{{value.3}}</div>
+							<div class="percentage">{{value.4}}	</div>
+						</div>
+            {% endfor %}
+
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+	<script src="../static/major/js/vendor/modernizr-3.5.0.min.js"></script>
+	<script src="../static/major/../static/major/js/vendor/jquery-1.12.4.min.js"></script>
+	<script src="../static/major/js/popper.min.js"></script>
+	<script src="../static/major/js/bootstrap.min.js"></script>
+	<script src="../static/major/js/owl.carousel.min.js"></script>
+	<script src="../static/major/js/isotope.pkgd.min.js"></script>
+	<script src="../static/major/js/ajax-form.js"></script>
+	<script src="../static/major/js/waypoints.min.js"></script>
+	<script src="../static/major/js/scrollIt.js"></script>
+  <script src="../static/major/js/jquery.counterup.min.js"></script>
+  <script src="../static/major/js/imagesloaded.pkgd.min.js"></script>
+	<script src="../static/major/js/jquery.scrollUp.min.js"></script>
+	<script src="../static/major/js/wow.min.js"></script>
+	<script src="../static/major/js/nice-select.min.js"></script>
+	<script src="../static/major/js/jquery.slicknav.min.js"></script>
+	<script src="../static/major/js/jquery.magnific-popup.min.js"></script>
+	<script src="../static/major/js/plugins.js"></script>
+	<script src="../static/major/js/gijgo.min.js"></script>
+
+	<!--contact js-->
+	<script src="../static/major/js/contact.js"></script>
+	<script src="../static/major/js/jquery.ajaxchimp.min.js"></script>
+	<script src="../static/major/js/jquery.form.js"></script>
+	<script src="../static/major/js/jquery.validate.min.js"></script>
+	<script src="../static/major/js/mail-script.js"></script>
+
+	<script src="../static/major/js/main.js"></script>
+
+  </body>
+</html>
